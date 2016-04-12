@@ -30,20 +30,20 @@ http://booking.restaurants.foo.com and plays the role of a Context
 Provider.
 
 First, the Context Provider is registered as provider of free\_places
-and occupancyLeves for Elizalde restaurant:
+and occupancy\_level for “LeBistro” restaurant:
 
-    POST <cb_host>:<cb_port>/v1/registry/contextEntities/type/Restaurant/id/Elizalde/attributes/free_places
+    POST <cb_host>:<cb_port>/v1/registry/contextEntities/type/Restaurant/id/LeBistro/attributes/free_places
     {
       "duration" : "P1M",
       "providingApplication" : "http://booking.restaurants.foo.com"
     }
-    POST <cb_host>:<cb_port>/v1/registry/contextEntities/type/Restaurant/id/Elizalde/attributes/occupancyLevels
+    POST <cb_host>:<cb_port>/v1/registry/contextEntities/type/Restaurant/id/LeBistro/attributes/occupancy_level
     {
       "duration" : "P1M",
       "providingApplication" : "http://booking.restaurants.foo.com"
     }
 
-Thus, each time free\_places or occupancyLevels is queried at Context
+Thus, each time free\_places or occupancy\_level is queried at Context
 Broker GE (e.g. from the user smartphone application), that query is
 forwarded to http://booking.restaurants.foo.com. From a Context Consumer
 perspective, all the process is transparent, as if the information were

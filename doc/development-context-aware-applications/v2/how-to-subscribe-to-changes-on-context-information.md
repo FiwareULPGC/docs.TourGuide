@@ -6,7 +6,7 @@ Broker GE is “programmed” to send notifications upon given conditions
 (specified in the subscription request).
 
 In the case of NiceEating, the application backend could use a
-subscription so each time a new review is cast by any user, the backend
+subscription so each time a new rating is cast by any user, the backend
 gets notified (in order to recalculate restaurant average score and
 publish it back in the Context Broker GE).
 
@@ -14,19 +14,19 @@ publish it back in the Context Broker GE).
     {
         "entities": [
             {
-                "type": "Review",
+                "type": "Rating",
                 "isPattern": "true",
                 "id": ".*"
             }
         ],
-        "attributes": [ "ratingValue"  ],
+        "attributes": [ "score"  ],
         "reference": "http://backend.niceeating.foo.com:1028/ratings",
         "duration": "P1M",
         "notifyConditions": [
             {
                 "type": "ONCHANGE",
                 "condValues": [
-                    "ratingValue"
+                    "score"
                 ]
             }
         ]
@@ -42,17 +42,17 @@ owners in other to know how their restaurants score is evolving.
             {
                 "type": "Restaurant",
                 "isPattern": "false",
-                "id": "Elizalde"
+                "id": "LeBistro"
             }
         ],
-        "attributes": [ "aggregateRating"  ],
+        "attributes": [ "average_scoring"  ],
         "reference": "http://myapp.foo.com:1028/restaurant_average_scorings",
         "duration": "P1M",
         "notifyConditions": [
             {
                 "type": "ONCHANGE",
                 "condValues": [
-                    "aggregateRating"
+                    "average_scoring"
                 ]
             }
         ]
