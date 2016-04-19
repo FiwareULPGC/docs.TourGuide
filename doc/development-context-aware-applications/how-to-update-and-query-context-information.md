@@ -87,7 +87,6 @@ restaurant in a single shot:
 
 
     GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/Elizalde
-    //getting a JSON response such as the following one:
     {
       "contextElement":
         {
