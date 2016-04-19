@@ -24,26 +24,35 @@ advantages:
 
 Let’s illustrate with an example based on the NiceEating case. Let’s
 consider an external restaurant booking system that is able to provide
-in real time the number of free places of a given restaurant and
-occupancy level (as a percentage). That system runs at
+in real time the occupancy level (as an absolute value). That system runs at
 http://booking.restaurants.foo.com and plays the role of a Context
 Provider.
 
-First, the Context Provider is registered as provider of free\_places
-and occupancy\_level for “LeBistro” restaurant:
+First, the Context Provider is registered as provider of occupancyLevel for “Elizalde” restaurant:
 
-    POST <cb_host>:<cb_port>/v1/registry/contextEntities/type/Restaurant/id/LeBistro/attributes/free_places
+    POST <cb_host>:<cb_port>/v2/entities/Elizalde/registrations
     {
-      "duration" : "P1M",
-      "providingApplication" : "http://booking.restaurants.foo.com"
-    }
-    POST <cb_host>:<cb_port>/v1/registry/contextEntities/type/Restaurant/id/LeBistro/attributes/occupancy_level
-    {
-      "duration" : "P1M",
-      "providingApplication" : "http://booking.restaurants.foo.com"
+        "attributes": [
+          "occupancyLevel"
+        ],
+        "callback": "http://booking.restaurants.foo.com"
     }
 
-Thus, each time free\_places or occupancy\_level is queried at Context
+The Context Provider could be registered for all restaurants instead:
+
+    POST <cb_host>:<cb_port>/v2/registrations
+    {
+       "entity": {
+         "pattern": "*",
+         "type": "Restaurant"
+       },
+       "attributes": [
+         "occupancyLevel"
+       ],
+       "callback": "http://booking.restaurants.foo.com"
+    }
+
+Thus, each time  occupancyLevel is queried at Context
 Broker GE (e.g. from the user smartphone application), that query is
 forwarded to http://booking.restaurants.foo.com. From a Context Consumer
 perspective, all the process is transparent, as if the information were
