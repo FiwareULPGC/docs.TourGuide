@@ -31,11 +31,15 @@ Provider.
 First, the Context Provider is registered as provider of occupancyLevel for “Elizalde” restaurant:
 
     POST <cb_host>:<cb_port>/v2/entities/Elizalde/registrations
-    {
-        "attributes": [
-          "occupancyLevel"
-        ],
-        "callback": "http://booking.restaurants.foo.com"
+     {
+       "entity": {
+         "id": "Elizalde",
+         "type": "Restaurant"
+       },
+       "attributes": [
+         "occupancyLevel"
+       ],
+       "callback": "http://booking.restaurants.foo.com"
     }
 
 The Context Provider could be registered for all restaurants instead:

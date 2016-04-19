@@ -20,7 +20,7 @@ of restaurants.
 Entities that would be relevant to the NiceEating application are of
 type Restaurant, Client and Review. For example, when a given user
 reviews a restaurant (e.g. in a scale from 0 to 5, “Client1234” scores
-“4” for the “LeBistro” restaurant and describes his/her experience with "Cheap and nice place to eat.") the smartphone application plays the
+“4” for the Elizalde restaurant and describes his/her experience with "Cheap and nice place to eat.") the smartphone application plays the
 Context Producer role **creating** a Review entity by issuing the
 following HTTP request :
 
