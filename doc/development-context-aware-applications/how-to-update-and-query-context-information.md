@@ -196,10 +196,7 @@ Alternatively, if you want to get the **attributes as a key map instead
 of as a vector**, you can use the attributesFormat parameter, in the
 following way
 
-    GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/Elizalde?attributesFormat=object
-
-getting a JSON response such as the following one:
-    
+    GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/Elizalde?attributesFormat=object   
     {
       "contextElement" : {
         "type" : "Restaurant",
