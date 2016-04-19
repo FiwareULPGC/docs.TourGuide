@@ -5,7 +5,7 @@ a region defined by a circle or a polygon.
 Victoria Gasteiz city center (identified by GPS coordinates 42.846718, -2.671635)
 a Context Consumer application will use the following query:
 
-    POST <cb_host>:<cb_port>/v1/contextEntities
+    POST <cb_host>:<cb_port>/v1/queryContext
     {
         "entities": [
             {
@@ -35,7 +35,7 @@ a Context Consumer application will use the following query:
 To query for all restaurants inside a defined zone inside Victoria Gasteiz a Context Consumer application will use the following query: 
 
 
-    POST <cb_host>:<cb_port>/v1/contextEntities
+    POST <cb_host>:<cb_port>/v1/queryContext
     {
         "entities": [
             {
