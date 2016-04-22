@@ -136,7 +136,7 @@ restaurant in a single shot:
             {
               "name": "description",
               "type": "",
-              "value": "Restaurante de estilo sidrería ubicado en Alegria-Dulantzi. Además de su menú del día y carta, también ofrece menú de sidrería. El menú del día cuesta 9 euros. Los fines de semana la especialidad de la casa son las alubias con sacramentos. En lo que a bebidas se refiere, hay una amplia selección además de la sidra. Cabe destacar que se puede hacer txotx. La capacidad del establecimiento es de 50 personas pero la sidrería no dispone de aparcamiento.%5cn%5cnHORARIO: %5cn%5cnLunes a domingo: 9:00-17:00 y 19:00-23:00."
+              "value": "Restaurante de estilo sidrería ubicado en Alegria-Dulantzi. Además ..."
             },
             {
               "name": "occupancyLevels",
@@ -191,7 +191,7 @@ restaurant in a single shot:
 
 
 Alternatively, if you want to get the **attributes as a key map instead
-of as a vector**, you can use the attributesFormat parameter, in the
+of as a vector**, you can use the `attributesFormat` parameter, in the
 following way
 
     GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/Elizalde?attributesFormat=object    
@@ -235,7 +235,7 @@ following way
           },
           "description" : {
             "type" : "",
-            "value" : "Restaurante de estilo sidrería ubicado en Alegria-Dulantzi. Además de su menú del día y carta, también ofrece menú de sidrería. El menú del día cuesta 9 euros. Los fines de semana la especialidad de la casa son las alubias con sacramentos. En lo que a bebidas se refiere, hay una amplia selección además de la sidra. Cabe destacar que se puede hacer txotx. La capacidad del establecimiento es de 50 personas pero la sidrería no dispone de aparcamiento.%5cn%5cnHORARIO: %5cn%5cnLunes a domingo: 9:00-17:00 y 19:00-23:00."
+            "value" : "Restaurante de estilo sidrería ubicado en Alegria-Dulantzi. Además ..."
           },
           "occupancyLevels" : {
             "type" : "PropertyValue",
