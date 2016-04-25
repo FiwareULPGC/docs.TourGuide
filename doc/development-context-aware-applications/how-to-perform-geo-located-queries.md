@@ -45,7 +45,7 @@ To query for all restaurants inside a defined zone inside Victoria Gasteiz a Con
             }
         ],
         "restriction": {
-            "scopes":  "scopes": [
+            "scopes":[
               {
                 "type": "FIWARE::Location",
                 "value": {

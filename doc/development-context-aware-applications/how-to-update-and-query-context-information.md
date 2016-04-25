@@ -26,38 +26,45 @@ following HTTP request:
 
     POST <cb_host>:<cb_port>/v1/contextEntities/type/Review/id/review-Elizalde-34
     {
-      "attributes" : [{
-          "name" : "ratingValue",
-          "type" : "integer",
-          "value" : "4"
-        },
-        {
-          "name" : "author",
-          "type" : "string",
-          "value" : "Client1234"
-        },
-        {
-          "name" : "itemReviewed",
-          "type" : "string",
-          "value" : "Elizalde"
-        },
-        {
-          "name" : "reviewBody",
-          "type" : "string",
-          "value" : "Cheap and nice place to eat."
-        }
+      "attributes":
+      [
+          {
+              "name": "author",
+              "type": "Person",
+              "value": "“Client1234”"
+          },
+          {
+              "name": "dateCreated",
+              "type": "date",
+              "value": "2016-04-20T18:19:33.00Z"
+          },
+          {
+              "name": "itemReviewed",
+              "type": "Restaurant",
+              "value": "Elizalde"
+          },
+          {
+              "name": "reviewBody",
+              "type": "none",
+              "value": "Cheap and nice place to eat."
+          },
+          {
+              "name": "reviewRating",
+              "type": "Rating",
+              "value": 4
+          }
       ]
     }
 
 Each time a new Review entity is created, the average rating for the
 corresponding restaurant is recalculated by the application backend
 which (playing also the role of Context Producer) **updates** the
-Restaurant entity accordingly:
+Restaurant entity accordingly. For this example the user has reviewed the Elizalde restaurant which id is `0115206c51f60b48b77e4c937835795c33bb953f`:
 
-    PUT <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/Elizalde/attributes/aggregateRating
+    PUT <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/0115206c51f60b48b77e4c937835795c33bb953f/attributes/aggregateRating
     {
-       "value" : "4.2"
-       "reviewCount": 1,
+       "value" : 4.2
+       "reviewCount": 2,
     }
 
 Finally, the user can get the information of a given Restaurant using
@@ -66,125 +73,105 @@ Context Consumer, **querying** the Restaurant entity. For example, to get
 the aggregateRating attribute, the client application could query for
 it in the following way:
 
-    GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/Elizalde/attributes/aggregateRating    
+    GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/0115206c51f60b48b77e4c937835795c33bb953f/attributes/aggregateRating    
     {
-      "attributes" : [
-      {
-        "name": "aggregateRating",
-        "type": "float",
-        "value": "3.2"
-      }
-      ],
-      "statusCode" : {
-        "code" : "200",
-        "reasonPhrase" : "OK"
-      }
-    } 
+        "attributes" : [
+            {
+                "name" : "aggregateRating",
+                "type" : "none",
+                "value" : {
+                "reviewCount" : 2,
+                "ratingValue" : 4.2
+            }
+            }
+        ],
+        "statusCode" : {
+            "code" : "200",
+            "reasonPhrase" : "OK"
+        }
+    }
 
 You can also obtain the values of all attributes of the "Elizalde"
 restaurant in a single shot:
 
 
-    GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/Elizalde
+    GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/0115206c51f60b48b77e4c937835795c33bb953f
     {
-      "contextElement":
-        {
-          "type": "Restaurant",
-          "isPattern": "false",
-          "id": "Elizalde",
-          "attributes":
-          [
-            {
-              "name": "address",
-              "type": "",
-              "value":
-              {
-                "type": "postalAddress",
-                "streetAddress": "Cuesta de las Cabras Aldapa 2",
-                "addressRegion": "Araba",
-                "addressLocality": "Alegría-Dulantzi",
-                "postalCode": "01240"
-              }
-            },
-            {
-              "name": "aggregateRating",
-              "type": "",
-              "value":
-              {
-                "reviewCount": 1,
-                "ratingValue": 3
-              }
-            },
-            {
-              "name": "capacity",
-              "type": "PropertyValue",
-              "value": 120,
-              "metadatas":
-              [
+        "contextElement" : {
+            "type" : "Restaurant",
+            "isPattern" : "false",
+            "id" : "0115206c51f60b48b77e4c937835795c33bb953f",
+            "attributes" : [
                 {
-                  "name": "name",
-                  "type": "",
-                  "value": "capacity"
-                }
-              ]
-            },
-            {
-              "name": "department",
-              "type": "",
-              "value": "Franchise3"
-            },
-            {
-              "name": "description",
-              "type": "",
-              "value": "Restaurante de estilo sidrería ubicado en Alegria-Dulantzi. Además ..."
-            },
-            {
-              "name": "occupancyLevels",
-              "type": "PropertyValue",
-              "value": 0,
-              "metadatas":
-              [
-                {
-                  "name": "timestamp",
-                  "type": "",
-                  "value": ""
+                    "name" : "address",
+                    "type" : "PostalAddress",
+                    "value" : {
+                        "streetAddress" : "Cuesta de las Cabras Aldapa 2",
+                        "addressRegion" : "Araba",
+                        "addressLocality" : "Alegría-Dulantzi",
+                        "postalCode" : "01240"
+                    }
                 },
                 {
-                  "name": "name",
-                  "type": "",
-                  "value": "occupancyLevels"
-                }
-              ]
-            },
-            {
-              "name": "position",
-              "type": "coords",
-              "value": "42.8404625, -2.5123277",
-              "metadatas":
-              [
+                    "name" : "aggregateRating",
+                    "type" : "none",
+                    "value" : {
+                        "reviewCount" : 2,
+                        "ratingValue" : 4.2
+                    }
+                },
                 {
-                  "name": "location",
-                  "type": "string",
-                  "value": "WGS84"
+                    "name" : "capacity",
+                    "type" : "PropertyValue",
+                    "value" : 50
+                },
+                {
+                    "name" : "department",
+                    "type" : "none",
+                    "value" : "Franchise1"
+                },
+                {
+                    "name" : "description",
+                    "type" : "none",
+                    "value" : "Restaurante de estilo sidrería ubicado en Alegria-Dulantzi. Además ..."
+                },
+                {
+                    "name" : "location",
+                    "type" : "geo:point",
+                    "value" : "42.8404625, -2.5123277"
+                },
+                {
+                    "name" : "name",
+                    "type" : "none",
+                    "value" : "Elizalde"
+                },
+                {
+                    "name" : "occupancyLevels",
+                    "type" : "PropertyValue",
+                    "value" : 0,
+                    "metadatas" : [
+                        {
+                            "name" : "timestamp",
+                            "type" : "date",
+                            "value" : "2016-04-20T18:15:15.434Z"
+                        }
+                    ]
+                },
+                {
+                    "name" : "priceRange",
+                    "type" : "none",
+                    "value" : 0
+                },
+                {
+                    "name" : "telephone",
+                    "type" : "none",
+                    "value" : "945 400 868"
                 }
-              ]
-            },
-            {
-              "name": "priceRange",
-              "type": "",
-              "value": 0
-            },
-            {
-              "name": "telephone",
-              "type": "",
-              "value": "945 400 868"
-            }
-          ]
+            ]
         },
-        "statusCode":
-        {
-            "code": "200",
-            "reasonPhrase": "OK"
+        "statusCode" : {
+            "code" : "200",
+            "reasonPhrase" : "OK"
         }
     }
 
@@ -192,90 +179,75 @@ restaurant in a single shot:
 
 Alternatively, if you want to get the **attributes as a key map instead
 of as a vector**, you can use the `attributesFormat` parameter, in the
-following way
+following way:
 
-    GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/Elizalde?attributesFormat=object    
+    GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/0115206c51f60b48b77e4c937835795c33bb953f?attributesFormat=object    
     {
-      "contextElement" : {
-        "type" : "Restaurant",
-        "isPattern" : "false",
-        "id" : "Elizalde",
-        "attributes" : {
-          "address" : {
-            "type" : "",
-            "value" : {
-              "type" : "postalAddress",
-              "streetAddress" : "Cuesta de las Cabras Aldapa 2",
-              "addressRegion" : "Araba",
-              "addressLocality" : "Alegría-Dulantzi",
-              "postalCode" : "01240"
-            }
-          },
-          "aggregateRating" : {
-            "type" : "",
-            "value" : {
-              "reviewCount" : 1,
-              "ratingValue" : 3
-            }
-          },
-          "capacity" : {
-            "type" : "PropertyValue",
-            "value" : 120,
-            "metadatas" : [
-              {
-                "name" : "name",
-                "type" : "",
-                "value" : "capacity"
-              }
-            ]
-          },
-          "department" : {
-            "type" : "",
-            "value" : "Franchise3"
-          },
-          "description" : {
-            "type" : "",
-            "value" : "Restaurante de estilo sidrería ubicado en Alegria-Dulantzi. Además ..."
-          },
-          "occupancyLevels" : {
-            "type" : "PropertyValue",
-            "value" : 0,
-            "metadatas" : [
-              {
-                "name" : "timestamp",
-                "type" : "",
-                "value" : ""
-              },
-              {
-                "name" : "name",
-                "type" : "",
-                "value" : "occupancyLevels"
-              }
-            ]
-          },
-          "position" : {
-            "type" : "coords",
-            "value" : "42.8404625, -2.5123277",
-            "metadatas" : [
-              {
-                "name" : "location",
-                "type" : "string",
-                "value" : "WGS84"
-              }
-            ]
-          },
-          "priceRange" : {
-            "type" : "",
-            "value": 0
-          },
-          "telephone" : {
-            "type" : "",
-            "value" : "945 400 868"
-          }
-        }
-      },
-      "statusCode" : {
-        "code" : "200",
-        "reasonPhrase" : "OK"
-      }
+       "contextElement" : {
+           "type" : "Restaurant",
+           "isPattern" : "false",
+           "id" : "0115206c51f60b48b77e4c937835795c33bb953f",
+           "attributes" : {
+               "address" : {
+                   "type" : "PostalAddress",
+                   "value" : {
+                       "streetAddress" : "Cuesta de las Cabras Aldapa 2",
+                       "addressRegion" : "Araba",
+                       "addressLocality" : "Alegría-Dulantzi",
+                       "postalCode" : "01240"
+                   }
+               },
+               "aggregateRating" : {
+                   "type" : "none",
+                   "value" : {
+                       "reviewCount" : 2,
+                       "ratingValue" : 4.2
+                   }
+               },
+               "capacity" : {
+                   "type" : "PropertyValue",
+                   "value" : 50
+               },
+               "department" : {
+                   "type" : "none",
+                   "value" : "Franchise1"
+               },
+               "description" : {
+                   "type" : "none",
+                   "value" : "Restaurante de estilo sidrería ubicado en Alegria-Dulantzi. Además ..."
+               },
+               "location" : {
+                   "type" : "geo:point",
+                   "value" : "42.8404625, -2.5123277"
+               },
+               "name" : {
+                   "type" : "none",
+                   "value" : "Elizalde"
+               },
+               "occupancyLevels" : {
+                   "type" : "PropertyValue",
+                   "value" : 0,
+                   "metadatas" : [
+                       {
+                           "name" : "timestamp",
+                           "type" : "date",
+                           "value" : "2016-04-20T18:15:15.434Z"
+                       }
+                   ]
+               },
+               "priceRange" : {
+                   "type" : "none",
+                   "value" : 0
+               },
+               "telephone" : {
+                   "type" : "none",
+                   "value" : "945 400 868"
+               }
+           }
+       },
+       "statusCode" : {
+           "code" : "200",
+           "reasonPhrase" : "OK"
+       }
     }
+    

@@ -34,15 +34,15 @@ publish it back in the Context Broker GE).
 
 Another case would be an application that subscribes to changes in
 average ratings of a given restaurant. This may be useful for restaurant
-owners in other to know how their restaurants score is evolving.
-
+owners in order to know how their restaurants score is evolving. In this example a subscription to the restaurant Elizalde which id is `0115206c51f60b48b77e4c937835795c33bb953f` is performed:
+  
     POST <cb_host>:<cb_port>/v1/subscribeContext
     {
         "entities": [
             {
                 "type": "Restaurant",
                 "isPattern": "false",
-                "id": "Elizalde"
+                "id": "0115206c51f60b48b77e4c937835795c33bb953f"
             }
         ],
         "attributes": [ "aggregateRating"  ],
