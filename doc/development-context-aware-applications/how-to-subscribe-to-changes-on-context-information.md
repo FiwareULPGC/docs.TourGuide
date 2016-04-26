@@ -12,24 +12,24 @@ publish it back in the Context Broker GE).
 
     POST <cb_host>:<cb_port>/v1/subscribeContext
     {
-        "entities": [
-            {
-                "type": "Review",
-                "isPattern": "true",
-                "id": ".*"
-            }
-        ],
-        "attributes": [ "ratingValue"  ],
-        "reference": "http://backend.niceeating.foo.com:1028/ratings",
-        "duration": "P1M",
-        "notifyConditions": [
-            {
-                "type": "ONCHANGE",
-                "condValues": [
-                    "ratingValue"
-                ]
-            }
-        ]
+      "entities": [
+        {
+          "type": "Review",
+          "isPattern": "true",
+          "id": ".*"
+        }
+      ],
+      "attributes": [ "ratingValue"  ],
+      "reference": "http://backend.niceeating.foo.com:1028/ratings",
+      "duration": "P1M",
+      "notifyConditions": [
+        {
+          "type": "ONCHANGE",
+          "condValues": [
+              "ratingValue"
+          ]
+        }
+      ]
     }
 
 Another case would be an application that subscribes to changes in
@@ -38,24 +38,24 @@ owners in order to know how their restaurants score is evolving. In this example
   
     POST <cb_host>:<cb_port>/v1/subscribeContext
     {
-        "entities": [
-            {
-                "type": "Restaurant",
-                "isPattern": "false",
-                "id": "0115206c51f60b48b77e4c937835795c33bb953f"
-            }
-        ],
-        "attributes": [ "aggregateRating"  ],
-        "reference": "http://myapp.foo.com:1028/restaurant_average_scorings",
-        "duration": "P1M",
-        "notifyConditions": [
-            {
-                "type": "ONCHANGE",
-                "condValues": [
-                    "aggregateRating"
-                ]
-            }
-        ]
+      "entities": [
+        {
+          "type": "Restaurant",
+          "isPattern": "false",
+          "id": "0115206c51f60b48b77e4c937835795c33bb953f"
+        }
+      ],
+      "attributes": [ "aggregateRating"  ],
+      "reference": "http://myapp.foo.com:1028/restaurant_average_scorings",
+      "duration": "P1M",
+      "notifyConditions": [
+        {
+          "type": "ONCHANGE",
+          "condValues": [
+              "aggregateRating"
+          ]
+        }
+      ]
     }
 
  
