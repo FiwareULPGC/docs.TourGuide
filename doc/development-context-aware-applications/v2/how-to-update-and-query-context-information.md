@@ -23,7 +23,6 @@ In this guide, the restaurant Elizalde is used as an example. In order to get it
 
     GET <cb_host>:<cb_port>/v2/entities?type=Restaurant&q=name==Elizalde&attrs=name&options=keyValues 
     
-    
     [
       {
         "id": "0115206c51f60b48b77e4c937835795c33bb953f",
@@ -65,7 +64,6 @@ it in the following way:
 
     GET <cb_host>:<cb_port>/v2/entities/0115206c51f60b48b77e4c937835795c33bb953f/attrs/aggregateRating/value
     
-
     {
       "reviewCount": 2,
       "ratingValue": 4
@@ -76,7 +74,6 @@ restaurant in a single shot:
 
     GET <cb_host>:<cb_port>/v2/entities/0115206c51f60b48b77e4c937835795c33bb953f
     
-
     {
       "id": "0115206c51f60b48b77e4c937835795c33bb953f",
       "type": "Restaurant",
@@ -152,7 +149,6 @@ following way:
 
     GET <cb_host>:<cb_port>/v2/entities/0115206c51f60b48b77e4c937835795c33bb953f?options=keyValues    
     
-
     {
       "id": "0115206c51f60b48b77e4c937835795c33bb953f",
       "type": "Restaurant",
@@ -180,7 +176,6 @@ Finally, the application can query entities by attribute content. For example, t
 
     GET <cb_host>:<cb_port>/v2/entities?type=Restaurant&q=capacity>=50&options=keyValues 
     
-
     [
       {
         "id": "0115206c51f60b48b77e4c937835795c33bb953f",
