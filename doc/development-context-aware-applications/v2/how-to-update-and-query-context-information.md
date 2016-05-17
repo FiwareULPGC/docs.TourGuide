@@ -17,6 +17,9 @@ and Context Consumer roles.  This would be the case of the mobile client
 of the NiceEating app enabling end users to review and query about reviews
 of restaurants.
 
+In order to isolate the information from other applications which could be 
+using the Context Broker, the `fiware-service: tourguide` header should be used in every request.
+
 Entities that would be relevant to the NiceEating application are of
 type Restaurant, Client and Review. 
 In this guide, the restaurant Elizalde is used as an example. In order to get its id for perform the different requests, we can use:

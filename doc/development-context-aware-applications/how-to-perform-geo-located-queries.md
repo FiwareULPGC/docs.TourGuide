@@ -1,6 +1,9 @@
 One very powerful feature in Context Broker GE is the ability to perform
 geo-located queries. You can query entities located inside (or outside)
-a region defined by a circle or a polygon.  
+a region defined by a circle or a polygon. 
+
+Remember to add the `fiware-service: tourguide` header to every request to use the NiceEating data. 
+ 
  For example, to query for all the restaurants within 13 km of the
 Vitoria-Gasteiz city center (identified by GPS coordinates 42.846718, -2.671635)
 a Context Consumer application will use the following query:
