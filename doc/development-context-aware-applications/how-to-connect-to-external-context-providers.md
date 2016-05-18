@@ -1,3 +1,5 @@
+The header `fiware-service: tourguide` must be added to every request, so that the proper tenant is specified.
+
 Context Broker GE also implements a mechanism so part of the context
 information is not managed directly by the Context Broker, but by
 external **Context Providers**. Thus, in this way, Context Broker GE

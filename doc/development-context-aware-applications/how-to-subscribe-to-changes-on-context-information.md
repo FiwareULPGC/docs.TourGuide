@@ -1,3 +1,5 @@
+The header `fiware-service: tourguide` must be added to every request, so that the proper tenant is specified.
+
 Apart from getting information using queries in a synchronous way (as
 illustrated in the “How to update and query context information” section
 above), Context Consumers can also get context information in an

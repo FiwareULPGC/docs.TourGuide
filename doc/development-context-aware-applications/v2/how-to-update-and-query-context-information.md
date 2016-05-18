@@ -1,3 +1,5 @@
+The `header fiware-service: tourguide` must be added to every request, so that the proper tenant is specified.
+
 Processes running as part of your application architecture that update
 context information using REST operations that the Context Broker GE
 exports, are said to play a **Context Producer** role.  As an example,

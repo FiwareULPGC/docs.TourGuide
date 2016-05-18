@@ -1,3 +1,5 @@
+The header `fiware-service: tourguide` must be added to every request, so that the proper tenant is specified.
+
 One very powerful feature in Context Broker GE is the ability to perform
 geo-located queries. You can query entities using the following spatial relationships: 
 
