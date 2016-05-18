@@ -28,7 +28,7 @@ in real time the occupancy level (as an absolute value). That system runs at
 http://booking.restaurants.foo.com and plays the role of a Context
 Provider.
 
-First, the Context Provider is registered as provider of `occupancyLevels` for Elizalde restaurant which id is `0115206c51f60b48b77e4c937835795c33bb953f` the next request could be used adding the `fiware-service: tourguide` header:
+First, the Context Provider is registered as provider of `occupancyLevels` for Elizalde restaurant which id is `0115206c51f60b48b77e4c937835795c33bb953f`:
 
     POST <cb_host>:<cb_port>/v1/registry/contextEntities/type/Restaurant/id/0115206c51f60b48b77e4c937835795c33bb953f/attributes/occupancyLevels
     {

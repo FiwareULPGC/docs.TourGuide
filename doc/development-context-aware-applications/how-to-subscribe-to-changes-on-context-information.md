@@ -10,8 +10,6 @@ subscription so each time a new review is cast by any user, the backend
 gets notified (in order to recalculate restaurant average score and
 publish it back in the Context Broker GE).
 
-Remember to add the `fiware-service: tourguide` header to use the NiceEating data. 
-
     POST <cb_host>:<cb_port>/v1/subscribeContext
     {
       "entities": [
