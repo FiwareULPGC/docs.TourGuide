@@ -1,5 +1,3 @@
-The header `fiware-service: tourguide` must be added to every request, so that the proper tenant is specified.
-
 One very powerful feature in Context Broker GE is the ability to perform
 geo-located queries. You can query entities located inside (or outside)
 a region defined by a circle or a polygon.  
@@ -8,6 +6,16 @@ Vitoria-Gasteiz city center (identified by GPS coordinates 42.846718, -2.671635)
 a Context Consumer application will use the following query:
 
     POST <cb_host>:<cb_port>/v1/queryContext
+        
+    Headers:
+
+    {
+      'Content-Type':     'application/json',
+      'Fiware-service':   'tourguide'
+    }
+
+    Payload:
+
     {
       "entities": [
         {
@@ -33,11 +41,20 @@ a Context Consumer application will use the following query:
     }
 
 
-
 To query for all restaurants inside a defined zone inside Vitoria-Gasteiz city a Context Consumer application will use the following query: 
 
-
     POST <cb_host>:<cb_port>/v1/queryContext
+        
+    Headers:
+
+    {
+      'Content-Type':     'application/json',
+      'Fiware-service':   'tourguide'
+
+    }
+
+    Payload:
+
     {
       "entities": [
         {

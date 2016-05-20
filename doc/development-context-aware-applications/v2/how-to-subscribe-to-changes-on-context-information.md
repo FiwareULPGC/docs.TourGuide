@@ -1,5 +1,3 @@
-The header `fiware-service: tourguide` must be added to every request, so that the proper tenant is specified.
-
 Apart from getting information using queries in a synchronous way (as
 illustrated in the “How to update and query context information” section
 above), Context Consumers can also get context information in an
@@ -13,6 +11,16 @@ gets notified (in order to recalculate restaurant average rating and
 publish it back in the Context Broker GE).
 
     POST <cb_host>:<cb_port>/v2/subscriptions 
+        
+    Headers:
+
+    {
+      'Content-Type':     'application/json',
+      'Fiware-service':   'tourguide'
+    }
+
+    Payload:
+
     {
       "description": "Update average rating",
       "subject": {
@@ -48,6 +56,16 @@ average ratings of a given restaurant. This may be useful for restaurant
 owners in order to know how their restaurants score is evolving.
 
     POST <cb_host>:<cb_port>/v2/subscriptions
+        
+    Headers:
+
+    {
+      'Content-Type':     'application/json',
+      'Fiware-service':   'tourguide'
+    }
+
+    Payload:
+
     {
       "description": "Get aggregateRating for Elizalde",
       "subject": {
