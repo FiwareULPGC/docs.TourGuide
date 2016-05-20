@@ -30,7 +30,7 @@ following HTTP request:
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
     }
 
     Payload:
@@ -77,7 +77,7 @@ Restaurant entity accordingly. For this example the user has reviewed the Elizal
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
 
     }
 
@@ -94,7 +94,7 @@ Finally, the user can get the information of a given Restaurant using
 the smartphone application. In that case the application works as
 Context Consumer, **querying** the Restaurant entity. For example, to get
 the aggregateRating attribute, the client application could query for
-it in the following way (with extra headers `Fiware-service: tourguide`):
+it in the following way (with extra headers `Fiware-Service: tourguide`):
 
     GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/0115206c51f60b48b77e4c937835795c33bb953f/attributes/aggregateRating    
     
@@ -117,7 +117,7 @@ it in the following way (with extra headers `Fiware-service: tourguide`):
 
 
 You can also obtain the values of all attributes of the "Elizalde"
-restaurant in a single shot (with extra headers `Fiware-service: tourguide`):
+restaurant in a single shot (with extra headers `Fiware-Service: tourguide`):
 
 
     GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/0115206c51f60b48b77e4c937835795c33bb953f
@@ -205,7 +205,7 @@ restaurant in a single shot (with extra headers `Fiware-service: tourguide`):
 
 Alternatively, if you want to get the **attributes as a key map instead
 of as a vector**, you can use the `attributesFormat` parameter, in the
-following way (with extra headers `Fiware-service: tourguide`):
+following way (with extra headers `Fiware-Service: tourguide`):
 
     GET <cb_host>:<cb_port>/v1/contextEntities/type/Restaurant/id/0115206c51f60b48b77e4c937835795c33bb953f?attributesFormat=object    
     

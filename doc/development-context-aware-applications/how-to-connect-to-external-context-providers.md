@@ -36,7 +36,7 @@ First, the Context Provider is registered as provider of `occupancyLevels` for E
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
     }
 
     Payload:

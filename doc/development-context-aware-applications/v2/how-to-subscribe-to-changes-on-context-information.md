@@ -16,7 +16,7 @@ publish it back in the Context Broker GE).
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
     }
 
     Payload:
@@ -61,7 +61,7 @@ owners in order to know how their restaurants score is evolving.
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
     }
 
     Payload:

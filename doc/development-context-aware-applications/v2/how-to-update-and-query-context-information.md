@@ -19,7 +19,7 @@ of restaurants.
 
 Entities that would be relevant to the NiceEating application are of
 type Restaurant, Client and Review. 
-In this guide, the restaurant Elizalde is used as an example. In order to get its id for perform the different requests, we can use (with extra headers `Fiware-service: tourguide`):
+In this guide, the restaurant Elizalde is used as an example. In order to get its id for perform the different requests, we can use (with extra headers `Fiware-Service: tourguide`):
 
     GET <cb_host>:<cb_port>/v2/entities?type=Restaurant&q=name==Elizalde&attrs=name&options=keyValues 
     
@@ -41,7 +41,7 @@ following HTTP request :
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
     }
 
     Payload:
@@ -66,7 +66,7 @@ Restaurant entity accordingly:
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
     }
 
     Payload:
@@ -80,7 +80,7 @@ Also, the user can get the information of a given Restaurant using
 the smartphone application. In that case the application works as
 Context Consumer, **querying** the Restaurant entity. For example, to get
 the aggregateRating attribute, the client application could query for
-it in the following way (with extra headers `Fiware-service: tourguide`):
+it in the following way (with extra headers `Fiware-Service: tourguide`):
 
     GET <cb_host>:<cb_port>/v2/entities/0115206c51f60b48b77e4c937835795c33bb953f/attrs/aggregateRating/value
     
@@ -90,7 +90,7 @@ it in the following way (with extra headers `Fiware-service: tourguide`):
     }
 
 You can also obtain the values of all attributes of the "Elizalde"
-restaurant in a single shot (with extra headers `Fiware-service: tourguide`):
+restaurant in a single shot (with extra headers `Fiware-Service: tourguide`):
 
     GET <cb_host>:<cb_port>/v2/entities/0115206c51f60b48b77e4c937835795c33bb953f
     
@@ -165,7 +165,7 @@ restaurant in a single shot (with extra headers `Fiware-service: tourguide`):
 
 
 Alternatively, if you want to get only attribute values, you can use the `keyValues` parameter, in the
-following way (with extra headers `Fiware-service: tourguide`):
+following way (with extra headers `Fiware-Service: tourguide`):
 
     GET <cb_host>:<cb_port>/v2/entities/0115206c51f60b48b77e4c937835795c33bb953f?options=keyValues    
     
@@ -192,7 +192,7 @@ following way (with extra headers `Fiware-service: tourguide`):
     }
 
 
-Finally, the application can query entities by attribute content. For example, to get all restaurants with capacity equal or greater than 50 the next request can be used (with extra headers `Fiware-service: tourguide`):
+Finally, the application can query entities by attribute content. For example, to get all restaurants with capacity equal or greater than 50 the next request can be used (with extra headers `Fiware-Service: tourguide`):
 
     GET <cb_host>:<cb_port>/v2/entities?type=Restaurant&q=capacity>=50&options=keyValues 
     

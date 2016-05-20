@@ -11,7 +11,7 @@ a Context Consumer application will use the following query:
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
     }
 
     Payload:
@@ -49,7 +49,7 @@ To query for all restaurants inside a defined zone inside Vitoria-Gasteiz city a
 
     {
       'Content-Type':     'application/json',
-      'Fiware-service':   'tourguide'
+      'Fiware-Service':   'tourguide'
 
     }
 
