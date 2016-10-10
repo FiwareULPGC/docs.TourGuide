@@ -16,15 +16,15 @@ After performing all the above steps, the front-end application is ready to be u
 
 [![FRONT END MAIN VIEW](images/main-app-not-logged.png)](images/main-app-not-logged.png)
 
-    You can log in using, for instance, the user `user1@test.com` with the password `test`. Once logged in, you can see a new menu at the top of the page:
+You can log in using, for instance, the user `user1@test.com` with the password `test`. Once logged in, you can see a new menu at the top of the page:
 
-    * **Home**: Return to the main view where all restaurants are displayed.   
-    * **My franchises** (only available for users that belong to a franchise): Display information filtered by user franchises. The sub menu entries available for each franchise are: 
-        * **Restaurants**: Filter restaurants shown in the map by the selected franchise.
-        * **Reviews**: Display all reviews written about the selected franchise.
-         * **Reservations**: Display all reservations of the selected franchise.
-     * **My reservations**: Display a list with all the reservations made by the logged user.
-     * **My reviews**: Display a list with all reviews written by the logged user.
+* **Home**: Return to the main view where all restaurants are displayed.   
+* **My franchises** (only available for users that belong to a franchise): Display information filtered by user franchises. The sub menu entries available for each franchise are: 
+    * **Restaurants**: Filter restaurants shown in the map by the selected franchise.
+    * **Reviews**: Display all reviews written about the selected franchise.
+     * **Reservations**: Display all reservations of the selected franchise.
+ * **My reservations**: Display a list with all the reservations made by the logged user.
+ * **My reviews**: Display a list with all reviews written by the logged user.
 
 [![ORGANIZATIONS MENU](images/organizations-menu.png)](images/organizations-menu.png)
 
@@ -156,11 +156,11 @@ The functionalities provided by this module are:
 * `setPopupContent(contentDiv)`: Replaces the modal window content with the specified div.
 * `createReviewsDiv(reviews)`: Creates an element containing a list with the information of each input review.
 * `createReservationsDiv(reservations)`: Creates an element containing a list with the information of each reservation.
-* `createReviewsTable(reviews)`: Creates a table containing the basic informat information of each review. It also generates the **View review**, **Delete review** and **Update review**options.
+* `createReviewsTable(reviews)`: Creates a table containing the basic information of each review. It also generates the **View review**, **Delete review** and **Update review**options.
 * `createOrganizationReviewsTable(reviews)`: It is like createReviewsTable but it does not create the **Delete review**and **Update review** options. Besides, the reviews are filtered by organization.
 * `createReservationsTable(reservations)`: Creates a table containing the information of each input reservation. It also generates the **Cancel reservation** option.
 * `createReviewForm(restaurantName, review)`: Generates a form that creates a review for the specified restaurant. If review is passed, the form is prepared to be initialized with its values and form action is set to update review instead of create review.
-* `initializeReviewForm(review)`: Initializes a review form  that was previously created by `createReviewForm`.
+* `initializeReviewForm(review)`: Initializes a review form that was previously created by `createReviewForm`.
 * `createViewReviewDiv(review)`: Creates a div containing all the information about a review.
 * `openPopUpWindow()`: Opens the modal window.
 * `closePopUpWindow()`: Closes the modal window.
@@ -179,10 +179,10 @@ This module contains the following methods:
 * `showReviewsByOrganization(organization)`: Gets all the reviews of the organization restaurants and displays them.
 * `createNewReview(name, rating, description)`: Creates a new review for the specified restaurant.
 * `createNewReservation(name, partySize, time)`: Creates a new review for the specified restaurant.
-* `updateReview(reviewId, rating, description)`: Updatse the specified review.
+* `updateReview(reviewId, rating, description)`: Updates the specified review.
 * `deleteReview(reviewId)`: Deletes the specified the review.
 * `showReservationsByUser(username)`: Retrieves all the reservations of the specified user and display them using a table.
-* `getMyReviews()`: Calsl `showReviewsByUser` using the logged user information.
+* `getMyReviews()`: Calls `showReviewsByUser` using the logged user information.
 * `getMyReservations()`: Calls `showReservationsByUser` using the logged user information.
 * `setUpDrawModule()`: Initializes all the actions to be performed from the UI.
 
@@ -237,6 +237,6 @@ The `clientLogic.showAllRestaurants` function uses `restaurantsAPI.getAllRestaur
 The  `clientLogic.getMyReviews()` function uses `connectionsAPI.getUser()` to get the username, and then displays the user reviews using `clientLogic.showReviewsByUser`. Similarly to `restaurantsAPI.getAllRestaurants`, this function retrieves the user reviews using `restaurantsAPIgetUserReviews` and creates the reviews table using `drawModule.createReviewsTable`. 
 
 
-The rest of the sections follows the same structure as **main view** and  **My reviews** sections.
+The rest of the sections follows the same structure as **main view** and **My reviews** sections.
 
 
